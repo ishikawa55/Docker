@@ -13,8 +13,9 @@ docker ps -a
 このコマンドは、実行中および停止中のすべてのDockerコンテナを表示します。
 
 ### ※コンテナの削除
-### docker rm [CONTAINER ID]or[NAMES]
-
+```
+docker rm [CONTAINER ID]or[NAMES]
+```
 ## ３．イメージの一覧表示
 ```
 docker images

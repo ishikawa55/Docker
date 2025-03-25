@@ -30,43 +30,55 @@ docker rmi [IMAGE ID]
 ```
 docker logs [CONTAINER ID]or[NAMES]
 ```
-指定したDockerコンテナのログを表示します。  
-[CONTAINER ID]または[NAMES]には対象のコンテナのIDまたは名前を入力します。
+指定したDockerコンテナのログを表示します。[CONTAINER ID]または[NAMES]には対象のコンテナのIDまたは名前を入力します。
 
 ## ５．コンテナの停止
 ```
 docker stop [CONTAINER ID]
 ```
-指定したDockerコンテナを停止します。  
-[CONTAINER ID]には対象のコンテナのIDを入力します。
+指定したDockerコンテナを停止します。[CONTAINER ID]には対象のコンテナのIDを入力します。
 
 ## ６．コンテナの再起動
 ```
 docker restart [CONTAINER ID]
 ```
-指定したDockerコンテナを再起動します。  
-このコマンドは、コンテナの環境変数などを変更した後に使用されることがあります。
+指定したDockerコンテナを再起動します。このコマンドは、コンテナの環境変数などを変更した後に使用されることがあります。
 
 ## ７．コンテナへの接続
 ```
 docker exec -it [CONTAINER ID]or[NAMES] bash (or sh)
 ```
-指定したDockerコンテナに対してインタラクティブなシェルセッションを開きます。  
-[CONTAINER ID]または[NAMES]には対象のコンテナのIDまたは名前を入力します。
+指定したDockerコンテナに対してインタラクティブなシェルセッションを開きます。[CONTAINER ID]または[NAMES]には対象のコンテナのIDまたは名前を入力します。
 
 # ImageとContainerについて
 Image = テンプレート（Dockerが用意してくれるもの）  
 Container = インスタンス（分身）
 
-Docker Hub から Docker Official Image である「postgres」を入手する  
-「postgres」は、コマンドを入力するだけで Image がダウンロードできる  
-tag でバージョンを確認してインストールする
+Docker Hub から Docker Official Image である「postgres」を入手する。  
+「postgres」は、コマンドを入力するだけで Image がダウンロードできる。  
+tag でバージョンを確認してインストールする。
 
-VSCode のターミナル（ ～/Desktop～ main± ）上で、  
-「 docker pull postgres:14.10 」等とコマンドを叩く（実行する）
+VSCode のターミナル（ ～/Desktop～ main± ）上で、「 docker pull postgres:14.10 」等とコマンドを叩く（実行する）
 
 # Dockerfileの使い方
+Dockerfile とは、image を元にコンテナを作成するファイル（専門的に言えば、ビルドするためのファイル）であり、役割は（１）ライブラリなどのパッケージを入れる、（２）ファイルのコピーなどのコマンドを叩く、である。  
 
+<< 以下、Dockerfile の導入の例 >>
+```
+FROM php:8.1-fpm
+```
+Docker の Image を選ぶ（FROM は一つだけ）
+```
+WORKDIR /var/www
+```
+ワーキングディレクトリ >>> どこで作業を行うか
+```
+ADD . /var/www
+```
+ADD はファイルやディレクトリをコンテナ内にコピーする命令で、/var/www はコンテナ内のコピー先のディレクトリを指定している。
+
+### ※ ADD と COPY の違い  
+ADD はファイルをコピー
 
 
 # docker-composeの使い方

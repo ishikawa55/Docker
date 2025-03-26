@@ -90,6 +90,11 @@ COPY は単純なコピーのみを行う。
 # docker-composeの使い方
 
 
+# 構築手順
+postgresからImageをダウンロードし、「 docker run 」でコンテナを作成  
+
+Dockerイメージからコンテナを作成する場合はdocker run -it **イメージID** bashコマンドでコンテナを作成しないと起動ができない
+
 
 [参考＿YouTube](https://www.youtube.com/watch?v=dbIdWVFWF5Q&list=PLQ0-GXIIQG6cSXEnv2ZoJ5LDxhAaoDv_e&index=11&ab_channel=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%82%E3%82%93%E3%81%97%E3%82%87%E3%83%BC%E3%80%90IT%E3%83%A9%E3%83%9C%E3%80%91)
 
